@@ -1,6 +1,6 @@
 public class DecimalToBinary {
     public static void main(String args[]){
-        int n = 8;
+        int n = 13;
         int ans = 0;
         int l = 0;
         while(n > 0){

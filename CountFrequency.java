@@ -8,21 +8,27 @@ public class CountFrequency {
         System.out.println("Enter the size of the array... ");
         int n = sc.nextInt();
         int[] arr = new int[n];
+        boolean[] visited = new boolean[n];
 
         System.out.println("Enter the elements of the array... ");
         for(int i = 0; i < n; i++){
             arr[i] = sc.nextInt();
         }
-        int freq = 0;
+
+        int count;
         for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
+            if(visited[i] == true){
+                continue;
+            }
+            count = 1;
+            visited[i] = true;
+            for(int j = i + 1; j < n; j++){
                 if(arr[i] == arr[j]){
-                    freq++;
+                    visited[j] = true;
+                    count++;
                 }
             }
-            System.out.println(Arrays.toString(arr));
-            System.out.println("Number: " + arr[i] + " Frequency: " + freq);
-            freq = 0;
+            System.out.println(arr[i] + " " + count);
         }
     }
 }
